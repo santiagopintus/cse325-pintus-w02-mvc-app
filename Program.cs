@@ -1,3 +1,5 @@
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using MvcMovie.Data;
 using MvcMovie.Models;
@@ -48,6 +50,16 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+var fixedCulture = new CultureInfo("en-US");
+app.UseRequestLocalization(
+    new RequestLocalizationOptions
+    {
+        DefaultRequestCulture = new RequestCulture(fixedCulture),
+        SupportedCultures = [fixedCulture],
+        SupportedUICultures = [fixedCulture],
+    }
+);
 
 app.UseHttpsRedirection();
 app.UseRouting();
