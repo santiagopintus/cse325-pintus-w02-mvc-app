@@ -53,6 +53,30 @@ public static class SeedData
                     Genre = "Western",
                     Rating = "PG",
                     Price = 3.99M
+                },
+                new Movie
+                {
+                    Title = "Interstellar",
+                    ReleaseDate = DateTime.Parse("2014-11-7"),
+                    Genre = "Sci-Fi",
+                    Rating = "PG-13",
+                    Price = 12.99M
+                },
+                new Movie
+                {
+                    Title = "Pirates of the Caribbean: The Curse of the Black Pearl",
+                    ReleaseDate = DateTime.Parse("2003-7-9"),
+                    Genre = "Adventure",
+                    Rating = "PG-13",
+                    Price = 11.99M
+                },
+                new Movie
+                {
+                    Title = "Harry Potter and the Philosopher's Stone",
+                    ReleaseDate = DateTime.Parse("2001-11-16"),
+                    Genre = "Fantasy",
+                    Rating = "PG",
+                    Price = 10.99M
                 }
             );
             context.SaveChanges();
