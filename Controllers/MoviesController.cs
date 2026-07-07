@@ -19,8 +19,9 @@ namespace MvcMovie.Controllers
             _context = context;
         }
 
-        // GET: Movies
-        public async Task<IActionResult> Index(string movieGenre, string searchString)
+        // GET: Movies/
+        [ActionName("Index")]
+        public async Task<IActionResult> MyMovies(string movieGenre, string searchString)
         {
             if (_context.Movie == null)
             {
@@ -28,11 +29,8 @@ namespace MvcMovie.Controllers
             }
 
             // Use LINQ to get list of genres.
-            IQueryable<string> genreQuery = from m in _context.Movie
-                                            orderby m.Genre
-                                            select m.Genre;
-            var movies = from m in _context.Movie
-                         select m;
+            IQueryable<string> genreQuery = from m in _context.Movie orderby m.Genre select m.Genre;
+            var movies = from m in _context.Movie select m;
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -50,7 +48,7 @@ namespace MvcMovie.Controllers
                 Movies = await movies.ToListAsync()
             };
 
-            return View(movieGenreVM);
+            return View("Index", movieGenreVM);
         }
 
         // GET: Movies/Details/5
@@ -89,7 +87,7 @@ namespace MvcMovie.Controllers
             {
                 _context.Add(movie);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index");
             }
             return View(movie);
         }
@@ -143,7 +141,7 @@ namespace MvcMovie.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index");
             }
             return View(movie);
         }
@@ -177,7 +175,7 @@ namespace MvcMovie.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index");
         }
 
         private bool MovieExists(int id)

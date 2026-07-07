@@ -1,3 +1,45 @@
+:root {
+  --bs-body-bg: #F4FFFD;
+  --bs-body-color: #000000;
+  --bs-heading-color: #000000;
+}
+
+.bg-accent-header {
+  background-color: #ED2626 !important;
+}
+
+.bg-accent-header .navbar-brand,
+.bg-accent-header .nav-link {
+  color: #fff;
+}
+
+.bg-accent-header .nav-link:hover,
+.bg-accent-header .nav-link:focus {
+  color: #fff;
+}
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #ED2626;
+  --bs-btn-border-color: #ED2626;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #c91f1f;
+  --bs-btn-hover-border-color: #c91f1f;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #b81c1c;
+  --bs-btn-active-border-color: #b81c1c;
+  --bs-btn-disabled-bg: #ED2626;
+  --bs-btn-disabled-border-color: #ED2626;
+  border-radius: 0.5rem;
+}
+
+.form-control,
+.form-select {
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  min-height: 34px;
+}
+
 html {
   font-size: 14px;
 }
