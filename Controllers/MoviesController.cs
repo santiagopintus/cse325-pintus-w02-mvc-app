@@ -82,7 +82,7 @@ namespace MvcMovie.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
-            [Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie
+            [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie
         )
         {
             if (ModelState.IsValid)
@@ -117,7 +117,7 @@ namespace MvcMovie.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(
             int id,
-            [Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie
+            [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie
         )
         {
             if (id != movie.Id)
